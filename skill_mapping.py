@@ -23,7 +23,16 @@ def get_skills(lang, spec=None):
             print(f"Our suggestions for {spec} are: ", end='')
             print(*output[:-1], sep=', ', end='')
             print(f" and {output[-1]}.\n")
-
+        else:
+            print("Our suggestions for are: ", end='')
+            print(*output[:-1], sep=', ', end='')
+            print(f" and {output[-1]}.\n")
+    elif lang.lower() == 'python':
+        output = get_python(spec)
+        if spec is not None:
+            print(f"Our suggestions for {spec} are: ", end='')
+            print(*output[:-1], sep=', ', end='')
+            print(f" and {output[-1]}.\n")
         else:
             print("Our suggestions for are: ", end='')
             print(*output[:-1], sep=', ', end='')
