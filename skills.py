@@ -52,4 +52,51 @@ def get_java(spec='general'):
                 idx = name_var_dict.index(key)
                 return name_var_dict[idx][list(key.keys())[0]]
 
+def get_python(spec='general'):
+    """
+    contains skills required for python developers
+    :return: skills and advanced_skills
+    """
+
+    # user can ask for specific info or general info
+
+    # general
+    skills = ["Flask","Django","Machine Learning","Artificial Intelligence","SQL","MongoDB",
+    "REST","Deep Learning","Selenium","Tkinter"]
+
+    advanced_skills = ['Blockchain', 'AWS', 'Big Data', 'Automation', 'Microservices']
+
+    # specific info ==================================================================================
+    python_build_tools = ['BuildBot', 'PyMake']
+    web_tech = ['HTML', 'CSS', 'Javascript']
+    web_frameworks = ['Flask','Django']
+    app_containers = ['python-docker-client','python-kuebrnetes-client']
+    automation_tools = ['Selenium','Robot','Pytest']
+    machine_learning = ['Regression','Classification','Clustering','ANN','CNN','RNN']
+    code_version_control = ['GitHub']
+    # ===============================================================================================
+
+    name_var_dict = [
+        {'pythonbuildtools': python_build_tools},
+        {'webtechnologies': web_tech},
+        {'webframeworks': web_frameworks},
+        {'applicationcontainers': app_containers},
+        {'pythonautomationtools': automation_tools},
+        {'machinelearning': machine_learning},
+        {'codeversioncontrol': code_version_control}
+    ]
+
+    if spec is None:
+        return skills  # if nothing else is passed
+
+    if spec.lower() == 'general':
+        return skills, advanced_skills
+
+    else:
+        for key in name_var_dict:
+            temp = spec.lower().strip().replace(" ", "")
+            if temp in list(key.keys())[0]:
+                idx = name_var_dict.index(key)
+                return name_var_dict[idx][list(key.keys())[0]]
+
 
